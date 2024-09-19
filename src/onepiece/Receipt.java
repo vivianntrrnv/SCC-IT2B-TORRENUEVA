@@ -4,40 +4,29 @@ package onepiece;
 import java.util.Scanner;
 
 public class Receipt {
-    
-    public void getReceipt(){
-   
-    Scanner input = new Scanner(System.in);
-     String cname, pname;
-     int  quan, pr, cash;
-     
-        System.out.print("Customer Name: ");
-        cname= input.nextLine();
-        System.out.print("Product Name: ");
-        pname= input.nextLine();
-        System.out.print("Quantity: ");
-        quan= input.nextInt();
-        System.out.print("Price: ");
-        pr= input.nextInt();
-        System.out.print("Cash: ");
-        cash= input.nextInt();
-        System.out.println("-----------------------------------");
-        System.out.println("RECEIPT");
-        System.out.println("-----------------------------------");
-        System.out.println("Name: "+cname);
-        System.out.println("Item: " +pname);
-        System.out.println("Quantity: " +quan);
-        System.out.println("-----------------------------------");
-        System.out.println("Total due: " +(quan*pr));
-        System.out.println("Cash: "+(cash));
-        System.out.println("Change: " +(cash-(quan*pr)));
-        
-        
-        
-        
-        
-        
-        
-        
+    private String customerName;
+    private String productName;
+    private int quantity;
+    private int price;
+    private int cash;
+
+    public Receipt(String customerName, String productName, int quantity, int price, int cash) {
+        this.customerName = customerName;
+        this.productName = productName;
+        this.quantity = quantity;
+        this.price = price;
+        this.cash = cash;
+    }
+
+    public void display() {
+        int totalCost = quantity * price;
+        System.out.println("Customer: " + customerName);
+        System.out.println("Product: " + productName);
+        System.out.println("Quantity: " + quantity);
+        System.out.println("Price: " + price);
+        System.out.println("Total: " + totalCost);
+        System.out.println("Cash: " + cash);
+        System.out.println("Change: " + (cash - totalCost));
+        System.out.println("---------------------");
     }
 }
